@@ -33,7 +33,7 @@ public class SpringfoxSwagger2Config {
                         //指定规范，这里是SWAGGER_2
         return new Docket(DocumentationType.SWAGGER_2)
                 //设定Api文档头信息，这个信息会展示在文档UI的头部位置
-                .apiInfo(SwaggerDemoApiInfo())
+                .apiInfo(swaggerDemoApiInfo())
                 .select()
                 //添加过滤条件，谓词过滤predicate，这里是自定义注解进行过滤
                 .apis(not(withMethodAnnotation(SwaggerCustomIgnore.class)))
@@ -46,7 +46,7 @@ public class SpringfoxSwagger2Config {
      * 自定义API文档基本信息实体
      * @return
      */
-    private ApiInfo SwaggerDemoApiInfo(){
+    private ApiInfo swaggerDemoApiInfo(){
         //构建联系实体，在UI界面会显示
         Contact contact = new Contact("枣面包", "http://www.zaomianbao.com", "zaomianbao@163.com");
         return new ApiInfoBuilder()
